@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="4DI-OU-HI4" id="Ouj-MR-Wdb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MyToDo" id="FmQ-lz-O8u"/>
+                    <navigationItem key="navigationItem" title="MyToDo" id="FmQ-lz-O8u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="e9D-Wc-Vxs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="4DI-OU-HI4" id="qWM-7s-AUO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdv-HG-Tag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
