@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class MyToDoCategoryViewController: UITableViewController {
     
-    var categoryList = [Category]()
+    let realm = try! Realm()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var categoryList: Results<Category>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +29,9 @@ class MyToDoCategoryViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
-            let newCategory = Category(context: self.context)
+            let newCategory = Category()
             newCategory.categoryName = textField.text!
-            self.categoryList.append(newCategory)
-            self.saveChanges()
+            self.saveChanges(category: newCategory)
         }
         
         alert.addTextField { (alertTextField) in
@@ -50,13 +49,13 @@ class MyToDoCategoryViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        return categoryList?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        let category = categoryList[indexPath.row]
-        cell.textLabel?.text = category.categoryName
+        let category = categoryList?[indexPath.row]
+        cell.textLabel?.text = category?.categoryName ?? "No category added yet!" 
         return cell
     }
     
@@ -70,15 +69,17 @@ class MyToDoCategoryViewController: UITableViewController {
         let destinationVC = segue.destination as! MyToDoViewController
         
         if let index = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categoryList[index.row]
+            destinationVC.selectedCategory = categoryList?[index.row]
         }
     }
     
     // MARK: - Data Manipulation Methods
     
-    func saveChanges() {
+    func saveChanges(category: Category) {
         do {
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         } catch {
             print("Error: \(error)")
         }
@@ -86,12 +87,7 @@ class MyToDoCategoryViewController: UITableViewController {
     }
 
     func loadData() {
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
-        do {
-            categoryList = try context.fetch(request)
-        } catch {
-            print("Error: \(error)")
-        }
+        categoryList = realm.objects(Category.self)
         self.tableView.reloadData()
     }
 }

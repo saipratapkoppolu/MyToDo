@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181D5CE620033CE10097F76F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 181D5CE420033CE10097F76F /* DataModel.xcdatamodeld */; };
 		181D5D0920034EF20097F76F /* MyToDoCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D5D0820034EF20097F76F /* MyToDoCategoryViewController.swift */; };
+		187A004E20037B7C00092659 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A004D20037B7C00092659 /* Item.swift */; };
+		187A005020037BE500092659 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A004F20037BE500092659 /* Category.swift */; };
 		4F16DFD86C15111368EC058F /* Pods_MyToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C811664E8D2C22153E03B975 /* Pods_MyToDo.framework */; };
 		74475ED72001F514000B4F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74475ED62001F514000B4F39 /* AppDelegate.swift */; };
 		74475ED92001F514000B4F39 /* MyToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74475ED82001F514000B4F39 /* MyToDoViewController.swift */; };
@@ -18,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		181D5CE520033CE10097F76F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		181D5D0820034EF20097F76F /* MyToDoCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoCategoryViewController.swift; sourceTree = "<group>"; };
+		187A004D20037B7C00092659 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		187A004F20037BE500092659 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5C41070DDC794B66FB638343 /* Pods-MyToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyToDo/Pods-MyToDo.release.xcconfig"; sourceTree = "<group>"; };
 		74475ED32001F514000B4F39 /* MyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74475ED62001F514000B4F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +108,8 @@
 		74475EEC20020F11000B4F39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				181D5CE420033CE10097F76F /* DataModel.xcdatamodeld */,
+				187A004D20037B7C00092659 /* Item.swift */,
+				187A004F20037BE500092659 /* Category.swift */,
 			);
 			name = Model;
 			path = "New Group";
@@ -258,8 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187A004E20037B7C00092659 /* Item.swift in Sources */,
+				187A005020037BE500092659 /* Category.swift in Sources */,
 				74475ED92001F514000B4F39 /* MyToDoViewController.swift in Sources */,
-				181D5CE620033CE10097F76F /* DataModel.xcdatamodeld in Sources */,
 				181D5D0920034EF20097F76F /* MyToDoCategoryViewController.swift in Sources */,
 				74475ED72001F514000B4F39 /* AppDelegate.swift in Sources */,
 			);
@@ -452,19 +456,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		181D5CE420033CE10097F76F /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				181D5CE520033CE10097F76F /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 181D5CE520033CE10097F76F /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 74475ECB2001F514000B4F39 /* Project object */;
 }
